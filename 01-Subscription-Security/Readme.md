@@ -28,6 +28,7 @@
 - [Configure alerts in your subscription](Readme.md#configure-alerts-for-your-subscription)
 - [Remove previously configured alerts from your subscription](Readme.md#remove-previously-configured-alerts-from-your-subscription)
 - [Configure alerts scoped to specific resource groups](Readme.md#configure-alerts-scoped-to-specific-resource-groups)
+- [Alerts Monitoring](Readme.md#activity-alert-monitoring)
 - [FAQs](Readme.md#faqs-2)
 
 ### [AzSDK: Azure Security Center (ASC) configuration](Readme.md#azsdk-azure-security-center-asc-configuration-1)
@@ -296,7 +297,7 @@ As noted above, by default alerts are configured for activities that are deemed 
 | ----------------  | --------- | ------ |
 |SubscriptionId 	|Subscription ID against which the alerts would be setup| |
 |SecurityContactEmails	|Email address of Security Point of Contact, can be a mail enabled security group or a distribution list |abc@contoso.com, xyz@contoso.net|
-|SecurityPhoneNumbers	|Phone numbers of Security Point of Contact. Note that only the country code '1' is currently supported for SMS. |425-1234567,425-1234568|
+|SecurityPhoneNumbers	|Phone numbers of Security Point of Contact.You need to provide contact no. with country code.|for e.g. '+91-98765-43210' or '+1-425-882-8080'|
 
 [Back to top…](Readme.md#contents)
 ### Remove previously configured alerts from your subscription
@@ -327,6 +328,28 @@ These parameters above has to be updated with the appropriate values. See the ta
 | -----------------  | --------- | 
 |SubscriptionId 	|Subscription ID against which these alerts would be setup	| 
 |TargetResourceGroup 	|Target resource group on which alerts needs to be configured	|
+
+[Back to top…](Readme.md#contents)
+### Activity Alert Monitoring
+In latest release we have enabled real time monitoring of alerts (for CSE tenant).So that we can fine tune AzSDK Alert feature. Now we will receive alerts data in our central telemetry.
+This feature will be enabled by default for every Subscription (CSE), If you have CA setup and Alerts are configured in your subscription. If you want to disable Alert Monitoring in your subscription, you have to create an automation variable "DisableAlertRunbook" in the AzSDKContinuousAssurance automation account either manually or by using following cmdlet:
+```PowerShell
+New-AzureRMAutomationVariable -ResourceGroupName "AzSDKRG" -AutomationAccountName "AzSDKContinuousAssurance" -Name "DisableAlertRunbook" -Encrypted $False -Value "True" 
+``` 
+If you have customized AzSDK for your organization, this feature will be enabled by default and alert logs will be sent to your central telemetry (check in contoso docs). You can leverage this feature to get insights into the activity alerts getting triggered across your organization.  For e.g.
+-a.	
+-b.-
+-c.-
+If you want to disable in a particular subscription, You can use following cmdlet :-
+```PowerShell
+New-AzureRMAutomationVariable -ResourceGroupName "AzSDKRG" -AutomationAccountName "AzSDKContinuousAssurance" -Name "DisableAlertRunbook" -Encrypted $False -Value "True" 
+``` 
+Or If you want to disable this feature for your organization , you need to set “IsAlertMonitoringEnabled” flag to “false” in AzSDK.Json file.
+```json
+{
+  "IsAlertMonitoringEnabled": true
+}
+```
 
 [Back to top…](Readme.md#contents)
 ### FAQs
