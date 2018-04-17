@@ -19,6 +19,13 @@
   - [Adding SVTs in the Jenkins pipeline](Readme.md#adding-svts-in-the-jenkins-pipeline)
   - [Verifying that SVTs have been added and configured correctly](Readme.md#verifying-that-the-svts-have-been-added-and-configured-correctly-1)
 - [Remediating Failures and Next Steps](Readme.md#remediating-failures-and-next-steps)
+
+## [AzSK ARM Checker (Preview)](Readme.md#security-verification-tests-svts-in-jenkins-pipeline-preview-1)
+- [Overview](Readme.md#enable-azsdk-extension-for-your-jenkins)
+- [Walkthrough](Readme.md#walkthrough-1)
+  - [Adding SVTs in the Jenkins pipeline](Readme.md#adding-svts-in-the-jenkins-pipeline)
+  - [Verifying that SVTs have been added and configured correctly](Readme.md#verifying-that-the-svts-have-been-added-and-configured-correctly-1)
+- [Remediating Failures and Next Steps](Readme.md#remediating-failures-and-next-steps)
 ------------------------------------------------------------------
 ### Overview 
 The AzSDK contains Security Verification Tests (SVTs) for multiple PaaS and IaaS services of the Azure platform. 
@@ -376,3 +383,19 @@ conditions (e.g., back to back SVT failures) etc.
 
 [Back to top...](Readme.md#contents)
 
+# AzSK ARMChecker
+### Overview
+
+The ARMTemplate security check script runs a scan on your given to ARM template to examine various conditions and configurations that need to be present in your ARMTemplate for secured resource deployment.
+
+[Back to top…](Readme.md#contents)
+### Scan the security health of your ARM Template
+
+The ARM Template health check script can be run using the command below after replacing `<ARMTemplate file path`> 
+ with your subscriptionId
+```PowerShell
+Get-AzSKARMTemplateSecurityStatus –ARMTemplatePath <Path to ARM Template> -Preview 
+```
+The parameters used are:
+- SubscriptionId – Subscription ID is the identifier of your Azure subscription 
+> **Note**: This feature is in preview mode only. So, passing "–Preview" switch is mandatory. 
