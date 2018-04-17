@@ -404,7 +404,7 @@ The parameters used are:
 ### ARM Temaplate Checker - What is covered?  
 ARM Template checker covers Baseline controls for following services:
 App Service, Storage, SQL, CDN, Traffic Manager, Document DB, Redis Cache, and Data Lake.
-ARM Template for reference are available [here](../ARMTemplates.md).
+ARM Template for reference are available [here](../ARMTemplates/Readme.md).
 
 ### ARMTemplate Checker Scan - How to fix findings?
 
