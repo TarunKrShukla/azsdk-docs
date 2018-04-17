@@ -426,4 +426,30 @@ e.g. :
  Get-AzSKARMTemplateSecurityStatus  –ARMTemplatePath "D:\DSRE\TestARMChecker\" –Preview [ -Recurse ]
 ```
 > **Note**: You need to pass “-Recurse” switch in cmdlet if you want to scan ARM Temaplates in the specified location and in all child folders of the location.
-	 
+
+[Back to top...](Readme.md#contents)	 
+
+## ARM Template Checker in VSTS pipeline :-
+
+**Step-1:** Create a release definition or open an existing one.   
+As shown below, currently the release definition is configured to simply deploy a ARM Template using Azure Powershell script. This is likely to be the state of any working CICD pipeline that deploys a ARM Template from VSTS to an Azure subscription.
+
+Let us take a look at the steps needed to add the AzSK-SVT task to the release definition.
+
+![03_Create_Release_Defination](../Images/03_Create_Release_Defination.png)
+
+**Step-2:** Add the AzSK-ARMChecker release task to the pipeline.
+Click on "Add Tasks", and select "AzSK ARM Template Checker".
+Click on "Add" and "Close".
+> **Note:** The VSTS dialog doesn't provide a good visual indication but the task does 
+get added when you click "Add" once!
+
+![03_Task_Catalog](../Images/03_Task_Catalog.png)
+
+**Step-3:** Specify the input parameters for the ARM Checker task.
+The "AzSK_ARM Checker" task starts showing in the "Run on Agent" list and displays some configuration inputs that are required for the task to run. These are none other than the familiar options we have been specifying while running the AzSK ARM Checker manually - you can specify the target ARM Template file path or a folder path based on your 
+
+Along with input parameter, you can check for below options
+<br/>**Recurse:** Switch this if you want to scan ARM Temaplates in the specified location and in all child folders of the location.
+<br/>**Do not auto-update AzSDK:** Switch to toggle auto update of AzSDK and required AzureRM modules on the build server. Keep this un-checked for Hosted agent and Hosted VS2017 and while using SVT task fot the first time and if you want to update AZSDK the version of AzSDK. 
+![03_IP_Parameter_for_Task](../Images/03_IP_Parameter_for_Task.PNG)
