@@ -20,7 +20,7 @@
   - [Verifying that SVTs have been added and configured correctly](Readme.md#verifying-that-the-svts-have-been-added-and-configured-correctly-1)
 - [Remediating Failures and Next Steps](Readme.md#remediating-failures-and-next-steps)
 
-## [AzSK ARM Checker (Preview)](Readme.md#security-verification-tests-svts-in-jenkins-pipeline-preview-1)
+## [AzSK ARM Checker (Preview)](Readme.md#azsk-armchecker)
 - [Overview](Readme.md#enable-azsdk-extension-for-your-jenkins)
 - [Walkthrough](Readme.md#walkthrough-1)
   - [Adding SVTs in the Jenkins pipeline](Readme.md#adding-svts-in-the-jenkins-pipeline)
