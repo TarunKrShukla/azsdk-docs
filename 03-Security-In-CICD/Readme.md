@@ -502,6 +502,6 @@ file that is named as ArmTemplateChecker_Logs_yyyymmdd_hhmmss.zip .
 
 Opening/extracting the "ArmTemplateChecker_Logs" ZIP file will reveal a folder structure and files placement identical to 
 what we have seen in the case of ad hoc ARMChecker runs:
-![03_AzSDK_Logs](../Images/03_ARMChecker_Logs.png)
+![03_AzSDK_Logs](../Images/03_ARMChecker_Logs.JPG)
 
 [Back to top...](Readme.md#contents)
