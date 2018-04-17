@@ -24,8 +24,8 @@
 - [Overview](Readme.md#overview-1) 
 - [Enable AzSDK extension for your VSTS](Readme.md#enable-azsdk-extension-for-your-vsts-1)
 - [Walkthrough](Readme.md#walkthrough-2)
- - [Adding ARM Template Checker in VSTS pipeline](Readme.md#arm-template-checker-in-vsts-pipeline)
- - [Verifying that ARMChecker have been added and configured correctly](Readme.md#verifying-that-the-armchecker-have-been-added-and-configured-correctly)
+  - [Adding ARM Template Checker in VSTS pipeline](Readme.md#adding-arm-template-checker-in-vsts-pipeline)
+  - [Verifying that ARMChecker have been added and configured correctly](Readme.md#verifying-that-the-armchecker-have-been-added-and-configured-correctly)
 ------------------------------------------------------------------
 ### Overview 
 The AzSDK contains Security Verification Tests (SVTs) for multiple PaaS and IaaS services of the Azure platform. 
@@ -444,7 +444,7 @@ Azure resources can be done before deployment of ARM Template seamlessly in CICD
 
 [Back to top...](Readme.md#contents)
 
-## ARM Template Checker in VSTS pipeline :-
+### Adding ARM Template Checker in VSTS pipeline
 
 **Step-1:** Create a release definition or open an existing one.   
 As shown below, currently the release definition is configured to simply deploy a ARM Template using Azure Powershell script. This is likely to be the state of any working CICD pipeline that deploys a ARM Template from VSTS to an Azure subscription.
