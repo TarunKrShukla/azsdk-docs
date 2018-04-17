@@ -451,5 +451,59 @@ The "AzSK_ARM Checker" task starts showing in the "Run on Agent" list and displa
 
 Along with input parameter, you can check for below options
 <br/>**Recurse:** Switch this if you want to scan ARM Temaplates in the specified location and in all child folders of the location.
+
 <br/>**Do not auto-update AzSDK:** Switch to toggle auto update of AzSDK and required AzureRM modules on the build server. Keep this un-checked for Hosted agent and Hosted VS2017 and while using SVT task fot the first time and if you want to update AZSDK the version of AzSDK. 
+
 ![03_IP_Parameter_for_Task](../Images/03_IP_Parameter_for_Task.PNG)
+
+**Step-4**: Save the Release Definition.
+  
+![03_Save_Release_Definition](../Images/03_Save_Release_Definition.PNG)  
+
+[Back to top...](Readme.md#contents)
+
+### Verifying that the SVTs have been added and configured correctly
+**Step-1:** Start the release pipeline. 
+This can be done by adding a new release for an existing build (or trigger a new release via a minor/trial 
+check-in). 
+
+![03_Start_Release_Pipeline](../Images/03_Start_Release_Pipeline.png)
+
+**Step-2:** Verify that the release pipeline has started. 
+Once the release is triggered, we can see that it is in progress by clicking on "Releases" (or via 
+"Build & Release" menu in the VSTS menu).
+
+![03_Verify_Pipeline](../Images/03_Verify_Pipeline.png)
+
+**Step-3:** View the release outcome.  
+In a few minutes the release pipeline should complete and we can view the outcomes as shown below (in the 
+pic below we can see that the release pipeline has failed):
+
+![03_View_Release_OutCome](../Images/03_View_Release_OutCome.png)
+
+**Step-4:** Look at the "Issues" to see why the release failed.  
+The summary output shows the cause of failure (in this case it is because the AzSK ARMChecker have failed).
+
+
+![03_Issues_Release_Fail](../Images/03_Issues_Release_Fail.png)
+
+**Step-5:** Look at the complete output log of the ARM Checker portion of the release pipeline execution . Notice how the output is the same as what is displayed when ARMChecker cmdlet manually run in a PS console.
+
+![03_Release_Task](../Images/03_Release_Task.png)
+
+**Step-6:** See the summary "CSV" and detailed "LOG" output files for the AzSK_ARMTemplateChcker. 
+This is no different than the "ad hoc ARMChecker run" scenarios. Note, above, how the ARM Checker outputs the location 
+of the "CSV" file and the "LOG" file at the end of the run. However, those locations are on the release 
+agent machine. These are also packaged up in an overall ZIP file and are available to download. The 
+overall ZIP file can be downloaded by clicking on the "Download all logs as ZIP" option.  
+The ZIP file "ReleaseLogs_dd.zip" contains LOGs from the entire release pipeline including the master 
+output for the AzSK_ARMChecker. The CSV file and the LOG file for AzSK ARMChecker are embedded in the 'inner' ZIP 
+file that is named as ArmTemplateChecker_Logs_yyyymmdd_hhmmss.zip .
+
+![03_Output_Folder](../Images/03_Output_Folder.png) 
+
+Opening/extracting the "ArmTemplateChecker_Logs" ZIP file will reveal a folder structure and files placement identical to 
+what we have seen in the case of ad hoc ARMChecker runs:
+![03_AzSDK_Logs](../Images/03_AzSDK_Logs.png)
+
+[Back to top...](Readme.md#contents)
