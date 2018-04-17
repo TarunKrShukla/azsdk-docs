@@ -436,7 +436,7 @@ As shown below, currently the release definition is configured to simply deploy 
 
 Let us take a look at the steps needed to add the AzSK-SVT task to the release definition.
 
-![03_Create_Release_Defination](../Images/03_Create_Release_Defination.png)
+![03_Create_Release_Defination](../Images/03_Create_Release_Defination_ARM.png)
 
 **Step-2:** Add the AzSK-ARMChecker release task to the pipeline.
 Click on "Add Tasks", and select "AzSK ARM Template Checker".
@@ -444,7 +444,7 @@ Click on "Add" and "Close".
 > **Note:** The VSTS dialog doesn't provide a good visual indication but the task does 
 get added when you click "Add" once!
 
-![03_Task_Catalog](../Images/03_Task_Catalog.png)
+![03_Task_Catalog](../Images/03_Task_Catalog_ARM.png)
 
 **Step-3:** Specify the input parameters for the ARM Checker task.
 The "AzSK_ARM Checker" task starts showing in the "Run on Agent" list and displays some configuration inputs that are required for the task to run. These are none other than the familiar options we have been specifying while running the AzSK ARM Checker manually - you can specify the target ARM Template file path or a folder path based on your 
@@ -454,12 +454,10 @@ Along with input parameter, you can check for below options
 
 <br/>**Do not auto-update AzSDK:** Switch to toggle auto update of AzSDK and required AzureRM modules on the build server. Keep this un-checked for Hosted agent and Hosted VS2017 and while using SVT task fot the first time and if you want to update AZSDK the version of AzSDK. 
 
-![03_IP_Parameter_for_Task](../Images/03_IP_Parameter_for_Task.PNG)
+![03_IP_Parameter_for_Task](../Images/03_IP_Parameter_for_Task_ARM.PNG)
 
 **Step-4**: Save the Release Definition.
   
-![03_Save_Release_Definition](../Images/03_Save_Release_Definition.PNG)  
-
 [Back to top...](Readme.md#contents)
 
 ### Verifying that the SVTs have been added and configured correctly
@@ -467,29 +465,29 @@ Along with input parameter, you can check for below options
 This can be done by adding a new release for an existing build (or trigger a new release via a minor/trial 
 check-in). 
 
-![03_Start_Release_Pipeline](../Images/03_Start_Release_Pipeline.png)
+![03_Start_Release_Pipeline](../Images/03_Start_Release_Pipeline_ARM.png)
 
 **Step-2:** Verify that the release pipeline has started. 
 Once the release is triggered, we can see that it is in progress by clicking on "Releases" (or via 
 "Build & Release" menu in the VSTS menu).
 
-![03_Verify_Pipeline](../Images/03_Verify_Pipeline.png)
+![03_Verify_Pipeline](../Images/03_Verify_Pipeline_ARM.png)
 
 **Step-3:** View the release outcome.  
 In a few minutes the release pipeline should complete and we can view the outcomes as shown below (in the 
 pic below we can see that the release pipeline has failed):
 
-![03_View_Release_OutCome](../Images/03_View_Release_OutCome.png)
+![03_View_Release_OutCome](../Images/03_View_Release_OutCome_ARM.png)
 
 **Step-4:** Look at the "Issues" to see why the release failed.  
 The summary output shows the cause of failure (in this case it is because the AzSK ARMChecker have failed).
 
 
-![03_Issues_Release_Fail](../Images/03_Issues_Release_Fail.png)
+![03_Issues_Release_Fail](../Images/03_Issues_Release_Fail_ARM.png)
 
 **Step-5:** Look at the complete output log of the ARM Checker portion of the release pipeline execution . Notice how the output is the same as what is displayed when ARMChecker cmdlet manually run in a PS console.
 
-![03_Release_Task](../Images/03_Release_Task.png)
+![03_Release_Task](../Images/03_Release_Task_ARM.png)
 
 **Step-6:** See the summary "CSV" and detailed "LOG" output files for the AzSK_ARMTemplateChcker. 
 This is no different than the "ad hoc ARMChecker run" scenarios. Note, above, how the ARM Checker outputs the location 
@@ -500,10 +498,10 @@ The ZIP file "ReleaseLogs_dd.zip" contains LOGs from the entire release pipeline
 output for the AzSK_ARMChecker. The CSV file and the LOG file for AzSK ARMChecker are embedded in the 'inner' ZIP 
 file that is named as ArmTemplateChecker_Logs_yyyymmdd_hhmmss.zip .
 
-![03_Output_Folder](../Images/03_Output_Folder.png) 
+![03_Output_Folder](../Images/03_Output_Folder_ARM.png) 
 
 Opening/extracting the "ArmTemplateChecker_Logs" ZIP file will reveal a folder structure and files placement identical to 
 what we have seen in the case of ad hoc ARMChecker runs:
-![03_AzSDK_Logs](../Images/03_AzSDK_Logs.png)
+![03_AzSDK_Logs](../Images/03_ARMChecker_Logs.png)
 
 [Back to top...](Readme.md#contents)
