@@ -477,7 +477,7 @@ Once the release is triggered, we can see that it is in progress by clicking on 
 In a few minutes the release pipeline should complete and we can view the outcomes as shown below (in the 
 pic below we can see that the release pipeline has failed):
 
-![03_View_Release_OutCome](../Images/03_View_Release_OutCome_ARM.png)
+![03_View_Release_OutCome](../Images/03_View_Release_OutCome_ARMChecker.png)
 
 **Step-4:** Look at the "Issues" to see why the release failed.  
 The summary output shows the cause of failure (in this case it is because the AzSK ARMChecker have failed).
