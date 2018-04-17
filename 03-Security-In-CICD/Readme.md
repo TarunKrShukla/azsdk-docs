@@ -418,3 +418,12 @@ To address findings, you should do the following:
 3.	Use the following approach based on control status:
          - For the “Verify” controls, look at the expected value and description column in .CSV file to decide whether to consider the    control as "Passed" or not. 
          - For the “Failed” controls, look at the .CSV file to get the supporting information like Expected value , Line No. and Resource path etc. 
+	 
+#### Scan multiple ARMTemplate :-	 
+To scan multiple ARMTemplate at a time you can pass folder path containing different ARM Template(s) to “–ARMTemplatePath” parameter in “Get-AzSKARMTemplateSecurityStatus” cmdlet.
+e.g. :
+```PowerShell
+ Get-AzSKARMTemplateSecurityStatus  –ARMTemplatePath "D:\DSRE\TestARMChecker\" –Preview [ -Recurse ]
+```
+> **Note**: You need to pass “-Recurse” switch in cmdlet if you want to scan ARM Temaplates in the specified location and in all child folders of the location.
+	 
