@@ -400,7 +400,21 @@ The parameters used are:
 - ARMTemplatePath – Subscription ID is the identifier of your Azure subscription 
 > **Note**: This feature is in preview mode only. So, passing "–Preview" switch is mandatory. 
 [Back to top…](Readme.md#contents)
+
 ### ARM Temaplate Checker - What is covered?  
 ARM Template checker covers Baseline controls for following services:
 App Service, Storage, SQL, CDN, Traffic Manager, Document DB, Redis Cache, and Data Lake.
-ARM Temaplate for reference are available [here](../ARMTemplates.md).
+ARM Template for reference are available [here](../ARMTemplates.md).
+
+### ARMTemplate Checker Scan - How to fix findings?
+
+Get-AzSKARMTemplateSecurityStatus cmdlet generate outputs which are organized as under: 
+- summary information of the control evaluation (pass/fail) status in a CSV file,
+- detailed powershell output log in a LOG file
+
+To address findings, you should do the following:
+1.	See the summary of control evaluation first in the CSV file. (Open the CSV in XLS. Use "Format as Table", "Hide Columns", "Filter", etc.)
+2.	Review controls that are marked as "Failed", "Verify" or "Manual"
+3.	Use the following approach based on control status:
+         - For the “Verify” controls, look at the expected value and description column in .CSV file to decide whether to consider the    control as "Passed" or not. 
+         - For the “Failed” controls, look at the .CSV file to get the supporting information like Expected value , Line No. and Resource path etc. 
