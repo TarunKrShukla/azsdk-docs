@@ -397,5 +397,10 @@ The ARM Template health check script can be run using the command below after re
 Get-AzSKARMTemplateSecurityStatus –ARMTemplatePath <Path to ARM Template> -Preview 
 ```
 The parameters used are:
-- SubscriptionId – Subscription ID is the identifier of your Azure subscription 
+- ARMTemplatePath – Subscription ID is the identifier of your Azure subscription 
 > **Note**: This feature is in preview mode only. So, passing "–Preview" switch is mandatory. 
+[Back to top…](Readme.md#contents)
+### ARM Temaplate Checker - What is covered?  
+ARM Template checker covers Baseline controls for following services:
+App Service, Storage, SQL, CDN, Traffic Manager, Document DB, Redis Cache, and Data Lake.
+ARM Temaplate for reference are available [here](../ARMTemplates.md).
