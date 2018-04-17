@@ -21,11 +21,11 @@
 - [Remediating Failures and Next Steps](Readme.md#remediating-failures-and-next-steps)
 
 ## [AzSK ARM Checker (Preview)](Readme.md#azsk-armchecker)
-- [Overview](Readme.md#enable-azsdk-extension-for-your-jenkins)
-- [Walkthrough](Readme.md#walkthrough-1)
-  - [Adding SVTs in the Jenkins pipeline](Readme.md#adding-svts-in-the-jenkins-pipeline)
-  - [Verifying that SVTs have been added and configured correctly](Readme.md#verifying-that-the-svts-have-been-added-and-configured-correctly-1)
-- [Remediating Failures and Next Steps](Readme.md#remediating-failures-and-next-steps)
+- [Overview](Readme.md#overview-1) 
+- [Enable AzSDK extension for your VSTS](Readme.md#enable-azsdk-extension-for-your-vsts-1)
+- [Walkthrough](Readme.md#walkthrough-2)
+ - [Adding ARM Template Checker in VSTS pipeline](Readme.md#arm-template-checker-in-vsts-pipeline)
+ - [Verifying that ARMChecker have been added and configured correctly](Readme.md#verifying-that-the-armchecker-have-been-added-and-configured-correctly)
 ------------------------------------------------------------------
 ### Overview 
 The AzSDK contains Security Verification Tests (SVTs) for multiple PaaS and IaaS services of the Azure platform. 
@@ -427,7 +427,22 @@ e.g. :
 ```
 > **Note**: You need to pass “-Recurse” switch in cmdlet if you want to scan ARM Temaplates in the specified location and in all child folders of the location.
 
-[Back to top...](Readme.md#contents)	 
+[Back to top...](Readme.md#contents)	
+
+### Enable AzSDK extension for your VSTS
+
+This extesion has been published to the VSTS gallery under "Build and Release" category. 
+You can now install this extension from the Marketplace directly (https://marketplace.visualstudio.com/items?itemName=azsdktm.AzSDK-task).
+> **Note:** You can also install this extension on your on-prem TFS instance. Please follow the instructions detailed at:
+> https://docs.microsoft.com/en-us/vsts/marketplace/get-tfs-extensions
+
+### Walkthrough
+This part assumes that you are familiar with VS build tasks and pipelines at a basic level. To demonstrate 
+the capability of the feature, we will use a basic ARMTemplate that is checked into our trial repository. 
+Our goal is to show how ARM checker can be injected into the build/release workflow so that security testing for 
+Azure resources can be done before deployment of ARM Template seamlessly in CICD.  
+
+[Back to top...](Readme.md#contents)
 
 ## ARM Template Checker in VSTS pipeline :-
 
@@ -460,7 +475,7 @@ Along with input parameter, you can check for below options
   
 [Back to top...](Readme.md#contents)
 
-### Verifying that the SVTs have been added and configured correctly
+### Verifying that the ARMchecker have been added and configured correctly
 **Step-1:** Start the release pipeline. 
 This can be done by adding a new release for an existing build (or trigger a new release via a minor/trial 
 check-in). 
